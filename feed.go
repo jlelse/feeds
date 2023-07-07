@@ -36,6 +36,7 @@ type Item struct {
 	Created     time.Time
 	Enclosure   *Enclosure
 	Content     string
+	Tags        []string
 }
 
 type Feed struct {

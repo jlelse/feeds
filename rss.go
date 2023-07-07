@@ -70,9 +70,9 @@ type RssItem struct {
 	Link        string   `xml:"link"`        // required
 	Description string   `xml:"description"` // required
 	Content     *RssContent
-	Author      string `xml:"author,omitempty"`
-	Category    string `xml:"category,omitempty"`
-	Comments    string `xml:"comments,omitempty"`
+	Author      string   `xml:"author,omitempty"`
+	Category    []string `xml:"category,omitempty"`
+	Comments    string   `xml:"comments,omitempty"`
 	Enclosure   *RssEnclosure
 	Guid        string `xml:"guid,omitempty"`    // Id used
 	PubDate     string `xml:"pubDate,omitempty"` // created or updated
@@ -116,6 +116,9 @@ func newRssItem(i *Item) *RssItem {
 
 	if i.Author != nil {
 		item.Author = i.Author.Name
+	}
+	if i.Tags != nil {
+		item.Category = i.Tags
 	}
 	return item
 }

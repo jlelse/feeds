@@ -19,6 +19,8 @@
             <guid isPermaLink="true">http://example.com/test/1540941720</guid>
             <dc:creator><![CDATA[John Smith]]></dc:creator>
             <pubDate>Tue, 30 Oct 2018 23:22:00 GMT</pubDate>
+            <category><![CDATA[Lorem]]></category>
+            <category><![CDATA[Ipsum]]></category>
         </item>
         <item>
             <title><![CDATA[Lorem ipsum 2018-10-30T23:21:00+00:00]]></title>
@@ -27,6 +29,7 @@
             <guid isPermaLink="true">http://example.com/test/1540941660</guid>
             <dc:creator><![CDATA[John Smith]]></dc:creator>
             <pubDate>Tue, 30 Oct 2018 23:21:00 GMT</pubDate>
+            <category><![CDATA[Lorem]]></category>
         </item>
         <item>
             <title><![CDATA[Lorem ipsum 2018-10-30T23:20:00+00:00]]></title>

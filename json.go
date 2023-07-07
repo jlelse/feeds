@@ -200,6 +200,9 @@ func newJSONItem(i *Item) *JSONItem {
 			item.Attachments = append(item.Attachments, &JSONAttachment{Url: i.Enclosure.Url, MIMEType: i.Enclosure.Type, Size: el})
 		}
 	}
+	if i.Tags != nil {
+		item.Tags = i.Tags
+	}
 
 	return item
 }
