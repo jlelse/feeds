@@ -1,5 +1,5 @@
 module github.com/jlelse/feeds
 
-go 1.16
+go 1.22.0
 
-require github.com/kr/pretty v0.3.1
+toolchain go1.23.0

@@ -2,12 +2,10 @@ package feeds
 
 import (
 	"encoding/xml"
-	"io/ioutil"
+	"io"
 	"os"
 	"reflect"
 	"testing"
-
-	"github.com/kr/pretty"
 )
 
 var testRssFeedXML = RssFeedXml{
@@ -373,12 +371,10 @@ func TestRssUnmarshal(t *testing.T) {
 	if err != nil {
 		panic("AHH file bad")
 	}
-	bytes, _ := ioutil.ReadAll(xmlFile)
+	bytes, _ := io.ReadAll(xmlFile)
 	_ = xml.Unmarshal(bytes, &xmlFeed)
 
 	if !reflect.DeepEqual(testRssFeedXML, xmlFeed) {
-		diffs := pretty.Diff(testRssFeedXML, xmlFeed)
-		t.Log(pretty.Println(diffs))
 		t.Error("object was not unmarshalled correctly")
 	}
 
@@ -390,12 +386,10 @@ func TestAtomUnmarshal(t *testing.T) {
 	if err != nil {
 		panic("AHH file bad")
 	}
-	bytes, _ := ioutil.ReadAll(xmlFile)
+	bytes, _ := io.ReadAll(xmlFile)
 	_ = xml.Unmarshal(bytes, &xmlFeed)
 
 	if !reflect.DeepEqual(testAtomFeedXML, xmlFeed) {
-		diffs := pretty.Diff(testAtomFeedXML, xmlFeed)
-		t.Log(pretty.Println(diffs))
 		t.Error("object was not unmarshalled correctly")
 	}
 }
