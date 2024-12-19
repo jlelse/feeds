@@ -129,8 +129,12 @@ func (r *Rss) RssFeed() *RssFeed {
 	build := anyTimeFormat(time.RFC1123Z, r.Updated)
 	author := ""
 	if r.Author != nil {
-		author = r.Author.Email
-		if len(r.Author.Name) > 0 {
+		switch {
+		case r.Author.Email != "" && r.Author.Name == "":
+			author = r.Author.Email
+		case r.Author.Email == "" && r.Author.Name != "":
+			author = r.Author.Name
+		case r.Author.Email != "" && r.Author.Name != "":
 			author = fmt.Sprintf("%s (%s)", r.Author.Email, r.Author.Name)
 		}
 	}
